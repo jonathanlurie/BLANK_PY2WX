@@ -8,3 +8,7 @@ The `package.sh` script just contains the instruction to package the project wit
 - `build` directory as a temporary building place
 - `dist` directory to place the final `.app` package
 
+## Dependencies
+
+- [wxPython](http://www.wxpython.org/) for the GUI part
+- [py2app](https://pypi.python.org/pypi/py2app/) for building the package
