@@ -1,0 +1,22 @@
+# importing wxPython library, see the reference here :
+# http://www.wxpython.org/docs/api/wx-module.html
+# and an excelent step by step tutorial there :
+# http://zetcode.com/wxpython
+import wx
+
+from CustomFrame import *
+
+# main function
+def main():
+
+    # each wx application must have a wx.App object
+    app = wx.App()
+
+    CustomFrame(None, title = "BLANK_PY2WX")
+
+    # entering the endless loop that catches all the events
+    app.MainLoop()
+
+
+if __name__ == '__main__':
+    main()
