@@ -1,6 +1,6 @@
 # BLANK_PY2WX
 
-> **BLANK** stands for *empty*  
+> **BLANK** stands for *empty nutshell*  
 > **PY2** stands for *py2app*  
 > **WX** stands for *wxPython*  
 
