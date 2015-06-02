@@ -1,16 +1,27 @@
+"""
+The View part of the MVC.
+ - Knows the Controller
+ - Does NOT know the Model
+"""
+
 import wx
 
+class View(wx.Frame):
 
-# CustomFrame just inherit from wx Frame to make it the way we want
-class CustomFrame(wx.Frame):
+    _controller = None
 
+    _button = None
+    _textBox = None
 
 
     # constuctor
-    def __init__(self, parent, title):
+    def __init__(self, parent, title, controller):
 
         # calling the regular wx.Frame constuctor
-        super(CustomFrame, self).__init__(parent, title=title, size=(550, 400))
+        wx.Frame.__init__(self, parent, title=title, size=(550, 400))
+
+        # sets the Controller part
+        self._controller = controller
 
         # make it possible to resize, but with boundaries
         self.SetMinSize((300, 300))
@@ -32,8 +43,7 @@ class CustomFrame(wx.Frame):
         # adding widgets
         self.addWidgets()
 
-        # show it!
-        self.Show()
+        self.Bind(wx.EVT_MOVE, self.OnMove)
 
 
 
@@ -88,6 +98,27 @@ class CustomFrame(wx.Frame):
         # setting the sizer to the man panel
         mainPanel.SetSizer(vbox)
 
+
+        # A button to ask the Model to work on something (throuh the Controller)
+        self._button = wx.Button(rightMidPan2, label='Spread a message')
+        self._button.Bind(wx.EVT_BUTTON, self._controller.spreadMessage)
+
+        # A text box to display the output given by the Model, through the Controller and a Publisher
+        self._textBox = wx.StaticText(leftMidPan, label="Nothing really interesting here", style=wx.ALIGN_CENTRE)
+
+
+
+    # set the text in the text box
+    def setText(self, t):
+        print(t)
+
+        self._textBox.SetLabel(t)
+
+
+    def OnMove(self, e):
+
+        x, y = e.GetPosition()
+        self._textBox.SetLabel(str(x) + ' ' +  str(y))
 
 
     # quit the app

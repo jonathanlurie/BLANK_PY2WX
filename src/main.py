@@ -4,7 +4,7 @@
 # http://zetcode.com/wxpython
 import wx
 
-from CustomFrame import *
+from Controller import *
 
 # main function
 def main():
@@ -12,7 +12,7 @@ def main():
     # each wx application must have a wx.App object
     app = wx.App()
 
-    CustomFrame(None, title = "BLANK_PY2WX")
+    controller = Controller(title = "BLANK_PY2WX")
 
     # entering the endless loop that catches all the events
     app.MainLoop()
