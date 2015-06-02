@@ -1,5 +1,9 @@
 # BLANK_PY2WX
 
+> **BLANK** stands for *empty*  
+> **PY2** stands for *py2app*  
+> **WX** stands for *wxPython*  
+
 This project provide an empty nutshell for a wxPython GUI application that needs to be packaged with py2app.  
 This also provide a script `launcher.sh` that allows a execution of the app without the need of packaging.
 
